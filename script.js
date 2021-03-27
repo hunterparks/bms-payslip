@@ -32,11 +32,10 @@ const moneyToWords = (money) => {
 };
 
 // Initializing Materialize
-let elems = document.querySelectorAll('.datepicker');
-let instances = M.Datepicker.init(elems, {
-    autoClose: true,
-    format: 'mm/dd/yyyy'
-});
+let datePickerElements = document.querySelectorAll('.datepicker');
+let datePickerInstances = M.Datepicker.init(datePickerElements, { autoClose: true, format: 'mm/dd/yyyy' });
+let sideNavElements = document.querySelectorAll('.sidenav');
+let sideNavInstances = M.Sidenav.init(sideNavElements, { edge: 'right' });
 let formElements = {
     payPeriodStart: document.querySelector('#pay-period-start'),
     payPeriodEnd: document.querySelector('#pay-period-end'),

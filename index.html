@@ -7,6 +7,7 @@
     <title>Payslip Generator | Bulldog Mail Service</title>
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js" defer></script>
@@ -22,12 +23,16 @@
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="https://bulldogmailservice.com/" class="brand-logo">Bulldog Mail Service</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="https://pay.bulldogmailservice.com/">Payslips</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <ul class="sidenav blue darken-3" id="mobile-demo">
+            <li><a class="white-text" href="https://pay.bulldogmailservice.com/">Payslips</a></li>
+        </ul>
     </header>
     <main>
         <div class="container">
@@ -50,7 +55,7 @@
                         </div>
                         <div class="input-field col s6">
                             <input autocomplete="off" type="text" id="check-number">
-                            <label for="check-number">Check Number (Starting)</label>
+                            <label for="check-number">Check Number</label>
                         </div>
                     </div>
                     <div class="row">
