@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip Generator | Bulldog Mail Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js" defer></script>
+    <script type="text/javascript" src="/numberToWords.min.js"></script>
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <img id="signature" src="/img/signature.png" hidden>
+        <img id="signature" src="/img/mascot_check.png" hidden>
+        <img id="signature" src="/img/mascot.png" hidden>
+        <nav class="blue darken-3">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="https://bulldogmailservice.com/" class="brand-logo">Bulldog Mail Service</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="https://pay.bulldogmailservice.com/">Payslips</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <form class="col s12" action="" onsubmit="submitForm()">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input autocomplete="off" type="text" class="datepicker" id="pay-period-start">
+                            <label for="pay-period-start">Pay Period Start</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input autocomplete="off" type="text" class="datepicker" id="pay-period-end">
+                            <label for="pay-period-end">Pay Period End</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input autocomplete="off" type="text" class="datepicker" id="check-date">
+                            <label for="check-date">Check Date</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input autocomplete="off" type="text" id="check-number">
+                            <label for="check-number">Check Number (Starting)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="file-field input-field">
+                            <div class="waves-effect waves-light btn grey darken-1">
+                                <span>Upload</span>
+                                <input autocomplete="off" type="file" id="info-file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input autocomplete="off" type="text" class="file-path validate" id="info-file-label">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="#" class="waves-effect waves-light btn grey darken-1" onclick="downloadTemplate()">
+                            download template
+                        </a>
+                        <a href="#" class="waves-effect waves-light btn grey darken-1 right" onclick="clearFile()">
+                            clear file
+                        </a>
+                    </div>
+                    <div class="row">
+                        <button class="btn waves-effect waves-light blue darken-3 right" type="submit">Submit</button>
+                    </div>
+                    <div class="row">
+                        <h5 id="error-text" class="red-text text-darken-3"></h5>
+                        <h5 id="success-text" class="green-text text-darken-3"></h5>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer blue darken-2">
+        <div class="footer-copyright blue darken-3">
+            <div class="container">
+                &copy;2021 Bulldog Mail Service
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
