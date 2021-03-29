@@ -25,13 +25,31 @@
                     <a href="https://bulldogmailservice.com/" class="brand-logo">Bulldog Mail Service</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="https://pay.bulldogmailservice.com/">Payslips</a></li>
+                        <li>
+                            <a href="https://pay.bulldogmailservice.com/">
+                                <i class="material-icons outline left">assignment</i>Payslips
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://bulldogmailservice.com/mint/">
+                                <i class="material-icons left">attach_money</i>Mint
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <ul class="sidenav blue darken-3" id="mobile-demo">
-            <li><a class="white-text" href="https://pay.bulldogmailservice.com/">Payslips</a></li>
+            <li>
+                <a class="white-text" href="https://pay.bulldogmailservice.com/">
+                    <i class="white-text material-icons outline left">assignment</i>Payslips
+                </a>
+            </li>
+            <li>
+                <a class="white-text" href="https://bulldogmailservice.com/mint/">
+                    <i class="white-text material-icons left">attach_money</i>Mint
+                </a>
+            </li>
         </ul>
     </header>
     <main>
@@ -39,50 +57,55 @@
             <div class="row">
                 <form class="col s12" action="" onsubmit="submitForm(); return false;">
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m4 offset-m2 l3 offset-l3">
                             <input autocomplete="off" type="text" class="datepicker" id="pay-period-start">
                             <label for="pay-period-start">Pay Period Start</label>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m4 l3">
                             <input autocomplete="off" type="text" class="datepicker" id="pay-period-end">
                             <label for="pay-period-end">Pay Period End</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m4 offset-m2 l3 offset-l3">
                             <input autocomplete="off" type="text" class="datepicker" id="check-date">
                             <label for="check-date">Check Date</label>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m4 l3">
                             <input autocomplete="off" type="text" id="check-number">
                             <label for="check-number">Check Number</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="file-field input-field">
-                            <div class="waves-effect waves-light btn grey darken-1">
-                                <span>Upload</span>
-                                <input autocomplete="off" type="file" id="info-file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input autocomplete="off" type="text" class="file-path validate" id="info-file-label">
+                        <div class="col s12 m8 offset-m2 l6 offset-l3">
+                            <div class="file-field input-field">
+                                <div class="waves-effect waves-light btn blue darken-2">
+                                    <i class="material-icons">upload</i>
+                                    <input autocomplete="off" type="file" id="info-file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input autocomplete="off" type="text" class="file-path validate" id="info-file-label">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <a href="#" class="waves-effect waves-light btn grey darken-1" onclick="downloadTemplate()">
-                            download template
-                        </a>
-                        <a href="#" class="waves-effect waves-light btn grey darken-1 right" onclick="clearFile()">
-                            clear file
-                        </a>
+                        <div class="col s12 m8 offset-m2 l6 offset-l3">
+                            <a href="/file/payroll_template.csv" download="payroll_template.csv" class="waves-effect waves-light btn blue darken-2">
+                                <i class="material-icons left">download</i>template
+                            </a>
+                            <button class="btn waves-effect waves-light cyan darken-2 right" type="submit">
+                                <i class="material-icons right">send</i>Submit
+                            </button>
+                        </div>
                     </div>
                     <div class="row">
-                        <button class="btn waves-effect waves-light blue darken-3 right" type="submit">Submit</button>
-                    </div>
-                    <div class="row">
-                        <h5 id="error-text" class="red-text text-darken-3"></h5>
-                        <h5 id="success-text" class="green-text text-darken-3"></h5>
+                        <div class="col s12 m8 offset-m2 l6 offset-l3">
+                            <h5 id="error-text" class="red-text text-darken-3"></h5>
+                            <svg id="loading" style="display:none;" class="spinner right">
+                                <circle cx="20" cy="20" r="18"></circle>
+                            </svg>
+                        </div>
                     </div>
                 </form>
             </div>

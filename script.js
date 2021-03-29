@@ -44,12 +44,7 @@ let formElements = {
     infoFile: document.querySelector('#info-file'),
     infoFileLabel: document.querySelector('#info-file-label')
 };
-
-function clearFile() {
-    formElements.infoFile.value = '';
-    formElements.infoFileLabel.value = '';
-    formElements.infoFileLabel.classList.remove('valid');
-}
+const spinner = document.querySelector('#loading');
 
 function clearForm() {
     for (let key in formElements) {
@@ -59,20 +54,16 @@ function clearForm() {
     }
 }
 
-function downloadTemplate() {
-    let a = document.createElement('a');
-    a.href = "/file/payroll_template.csv";
-    a.setAttribute('download', 'payroll_template.csv');
-    a.click();
+function startLoading() {
+    spinner.style['display'] = 'inherit';
+}
+
+function stopLoading() {
+    spinner.style['display'] = 'none';
 }
 
 function writeError(text) {
-    writeSuccess('');
     document.querySelector('#error-text').innerText = text;
-}
-
-function writeSuccess(text) {
-    document.querySelector('#success-text').innerText = text;
 }
 
 function submitForm() {
@@ -115,7 +106,6 @@ function submitForm() {
     const reader = new FileReader();
     reader.readAsText(file);
     reader.onload = (event) => {
-        writeSuccess('Input successful. Processing...');
         const fileContent = event.target.result
             .split('\n')
             .slice(1)
@@ -127,11 +117,13 @@ function submitForm() {
 
 // Main
 function main(inputData, payPeriodStart, payPeriodEnd, checkDate, checkNumber) {
+    startLoading();
     const doc = new jsPDF({
         unit: 'in',
         format: 'letter'
     });
     generatePdf(doc, inputData, payPeriodStart, payPeriodEnd, checkDate, checkNumber);
+    stopLoading();
     doc.save();
 }
 
