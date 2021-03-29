@@ -52,6 +52,9 @@ function clearForm() {
         formElements[key].classList.remove('valid');
         formElements[key].classList.remove('invalid');
     }
+    for (let label of document.querySelectorAll('label')) {
+        label.classList.remove('active');
+    }
 }
 
 function startLoading() {
